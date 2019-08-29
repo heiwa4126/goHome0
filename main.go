@@ -8,11 +8,28 @@ import (
 
 func ex1() error {
 
+	// get config path
 	cnfFile, _, err := config.GetPath()
 	if err != nil {
 		return err
 	}
 	fmt.Printf("config file='%s'\n", cnfFile)
+
+	// write config
+	conf := config.Config{"api-key(test)", "endpoint(dummy)"}
+	err = conf.Write()
+	if err != nil {
+		return err
+	}
+
+	// read config
+	conf2, err := config.Read()
+	if err != nil {
+		return err
+	}
+	fmt.Printf("%+v\n", *conf2)
+
+	// over
 	return nil
 }
 
