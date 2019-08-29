@@ -43,7 +43,7 @@ func CreateDirIfNotExist(dir string) error {
 	return nil
 }
 
-// Write write down configuration in JSON format
+// Write down configuration in JSON format
 func (conf *Config) Write() error {
 
 	file, dir, err := GetPath()
@@ -64,7 +64,7 @@ func (conf *Config) Write() error {
 	return ioutil.WriteFile(file, bytes, 0644)
 }
 
-// ReadJSONFile ...
+// ReadJSONFile はJSONファイルを読み込む
 func ReadJSONFile(filename string, out interface{}) error {
 
 	reader, err := os.Open(filename)
@@ -76,7 +76,7 @@ func ReadJSONFile(filename string, out interface{}) error {
 	return json.NewDecoder(reader).Decode(out)
 }
 
-// Read TODO: write comment here
+// Read ...
 func Read() (*Config, error) {
 
 	file, _, err := GetPath()
