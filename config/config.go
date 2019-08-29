@@ -46,51 +46,46 @@ func CreateDirIfNotExist(dir string) error {
 // Write write down configuration in JSON format
 func (conf *Config) Write() error {
 
-	confFile, confDir, err := GetPath()
+	file, dir, err := GetPath()
 	if err != nil {
 		return err
 	}
 
-	err = CreateDirIfNotExist(confDir)
+	err = CreateDirIfNotExist(dir)
 	if err != nil {
 		return err
 	}
 
-	j1, err := json.MarshalIndent(*conf, "", " ")
+	bytes, err := json.MarshalIndent(*conf, "", " ")
 	if err != nil {
 		return err
 	}
 
-	err = ioutil.WriteFile(confFile, j1, 0644)
+	return ioutil.WriteFile(file, bytes, 0644)
+}
+
+// ReadJSONFile ...
+func ReadJSONFile(filename string, out interface{}) error {
+
+	reader, err := os.Open(filename)
 	if err != nil {
 		return err
 	}
+	defer reader.Close()
 
-	return nil
+	return json.NewDecoder(reader).Decode(out)
 }
 
 // Read TODO: write comment here
 func Read() (*Config, error) {
 
+	file, _, err := GetPath()
+	if err != nil {
+		return nil, err
+	}
+
 	var conf Config
-	configFile, _, err := GetPath()
-	if err != nil {
-		return nil, err
-	}
-
-	_, err = os.Stat(configFile)
-
-	if err != nil {
-		// configFileがない
-		return nil, err
-	}
-
-	file, err := ioutil.ReadFile(configFile)
-	if err != nil {
-		return nil, err
-	}
-
-	err = json.Unmarshal([]byte(file), &conf)
+	err = ReadJSONFile(file, &conf)
 	if err != nil {
 		return nil, err
 	}

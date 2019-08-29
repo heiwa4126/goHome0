@@ -16,7 +16,7 @@ func ex1() error {
 	fmt.Printf("config file='%s'\n", cnfFile)
 
 	// write config
-	conf := config.Config{"api-key(test)", "endpoint(dummy)"}
+	conf := config.Config{APIKey:"api-key(test)", Endpoint:"endpoint(dummy)"}
 	err = conf.Write()
 	if err != nil {
 		return err
