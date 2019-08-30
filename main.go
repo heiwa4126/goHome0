@@ -34,7 +34,7 @@ func ex1() error {
 }
 
 func main() {
-	fmt.Println("世界の皆さん、こんにちは!")
+	fmt.Println("Hello world!")
 	err := ex1()
 	if err != nil {
 		log.Fatal(err)
