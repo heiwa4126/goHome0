@@ -16,7 +16,8 @@ type Config struct {
 	Endpoint string
 }
 
-// GetPath configファイルのパスを得る
+// GetPath configファイルのパスを返す
+// Linuxでは$HOME/.config/{AppName}/config.jsonが帰る
 func GetPath() (string, string, error) {
 
 	var configFile string
@@ -26,8 +27,8 @@ func GetPath() (string, string, error) {
 		return "", "", err
 	}
 
-	configDir := filepath.Join(home, ".config")
-	configFile = filepath.Join(configDir, AppName+".json")
+	configDir := filepath.Join(home, ".config", AppName)
+	configFile = filepath.Join(configDir, "config.json")
 
 	return configFile, configDir, nil
 }
