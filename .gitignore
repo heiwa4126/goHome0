@@ -119,6 +119,7 @@ inc/
 # Ignore all local history of files
 .history
 
+
 # End of https://www.gitignore.io/api/go,perl,emacs,visualstudiocode
 
 goHome0
