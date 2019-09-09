@@ -123,4 +123,6 @@ inc/
 # End of https://www.gitignore.io/api/go,perl,emacs,visualstudiocode
 
 goHome0
+goHome0-linux-*
+goHome0-win-*
 *.exe
