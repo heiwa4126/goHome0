@@ -10,7 +10,7 @@ import (
 func ex1() error {
 
 	// get config path
-	cnfFile, _, err := config.GetPath()
+	cnfFile, _, err := config.GetPath();
 	if err != nil {
 		return err
 	}
@@ -18,8 +18,7 @@ func ex1() error {
 
 	// write config
 	conf := config.Config{APIKey: "api-key(test)", Endpoint: "endpoint(dummy)"}
-	err = conf.Write()
-	if err != nil {
+	if err = conf.Write() ; err != nil {
 		return err
 	}
 
@@ -36,8 +35,7 @@ func ex1() error {
 
 func main() {
 	fmt.Println("Hello world!")
-	err := ex1()
-	if err != nil {
+	if err := ex1(); err != nil {
 		log.Fatal(err)
 	}
 }
