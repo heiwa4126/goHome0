@@ -6,6 +6,7 @@ import (
 	"log"
 )
 
+// example code
 func ex1() error {
 
 	// get config path
