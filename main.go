@@ -10,7 +10,7 @@ import (
 func ex1() error {
 
 	// get config path
-	cnfFile, _, err := config.GetPath();
+	cnfFile, _, err := config.GetPath()
 	if err != nil {
 		return err
 	}
@@ -18,7 +18,7 @@ func ex1() error {
 
 	// write config
 	conf := config.Config{APIKey: "api-key(test)", Endpoint: "endpoint(dummy)"}
-	if err = conf.Write() ; err != nil {
+	if err = conf.Write(); err != nil {
 		return err
 	}
 
