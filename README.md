@@ -2,7 +2,7 @@
 
 - go modulesを使ったプロジェクトの練習
 - 設定の保存の練習
-- GitHubで[release](./release)の練習
+- GitHubで[releases](./releases)の練習
   - GitLabで[tags](./tags)の練習
 
 内容自体は、hello worldに毛が生えたようなもの。
